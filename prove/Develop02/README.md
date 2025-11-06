@@ -2,14 +2,10 @@
 
 ### **Menu**
 
-+---------------------------+
-|          Menu             |
-+---------------------------+
-| - _menuString : string[]  |
-+---------------------------+
-| + ProcessMenu() : int     |
-+---------------------------+
-
+| **Menu**    |                          |
+| ----------- | ------------------------ |
+| **Fields**  | `_menuString : string[]` |
+| **Methods** | `ProcessMenu() : int`    |
 
 **Description:**
 Handles displaying the journal menu and processing user selections.
@@ -18,18 +14,10 @@ Handles displaying the journal menu and processing user selections.
 
 ### **Entry**
 
-+--------------------------------------------+
-|                  Entry                     |
-+--------------------------------------------+
-| - _date : string                           |
-| - _prompt : string                         |
-| - _response : string                       |
-+--------------------------------------------+
-| + FillEntry(prompt : string) : void        |
-| + FillEntry(date : string, prompt : string, response : string) : void |
-| + Display() : void                         |
-| + EntryData() : string                     |
-+--------------------------------------------+
+| **Entry**   |                                                                                                                                                              |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Fields**  | `_date : string`<br>`_prompt : string`<br>`_response : string`                                                                                               |
+| **Methods** | `FillEntry(prompt : string) : void`<br>`FillEntry(date : string, prompt : string, response : string) : void`<br>`Display() : void`<br>`EntryData() : string` |
 
 **Description:**
 Stores a single journal entry, including the date, prompt, and user’s response.
@@ -39,16 +27,10 @@ Provides methods for displaying and formatting entry data.
 
 ### **Journal**
 
-+---------------------------------------------+
-|                  Journal                    |
-+---------------------------------------------+
-| + _entryList : List<Entry>                  |
-| + _fileLocation : string                    |
-+---------------------------------------------+
-| + displayEntries() : void                   |
-| + SaveFile() : void                         |
-| + ReadFile() : void                         |
-+---------------------------------------------+
+| **Journal** |                                                                         |
+| ----------- | ----------------------------------------------------------------------- |
+| **Fields**  | `_entryList : List<Entry>`<br>`_fileLocation : string`                  |
+| **Methods** | `displayEntries() : void`<br>`SaveFile() : void`<br>`ReadFile() : void` |
 
 **Description:**
 Manages all journal entries and file operations such as saving and loading entries.
@@ -57,20 +39,18 @@ Manages all journal entries and file operations such as saving and loading entri
 
 ### **Program**
 
-+---------------------------------------------+
-|                  Program                    |
-+---------------------------------------------+
-| - _questions : string[]                     |
-+---------------------------------------------+
-| + ChooseRandomPrompt() : string             |
-| + Main(args : string[]) : void              |
-+---------------------------------------------+
+| **Program** |                                                                   |
+| ----------- | ----------------------------------------------------------------- |
+| **Fields**  | `_questions : string[]`                                           |
+| **Methods** | `ChooseRandomPrompt() : string`<br>`Main(args : string[]) : void` |
 
 **Description:**
 Controls the flow of the entire application.
 Creates and connects the `Menu`, `Journal`, and `Entry` objects.
 
 ---
+
+### **Relationships**
 
 * **Program** creates and manages `Menu` and `Journal`.
 * **Journal** manages multiple `Entry` objects.
