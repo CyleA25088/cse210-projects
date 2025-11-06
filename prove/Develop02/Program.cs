@@ -21,15 +21,26 @@ class Menu
             "5. Quit"
     ];
 
-    public void ProcessMenu()
+    public int ProcessMenu()
     {
-        foreach (string menuItem in _menuString)
+
+        int userSelection = 0;
+
+        do
         {
-            Console.WriteLine(menuItem);
-        }
+            foreach (string menuItem in _menuString)
+            {
+                Console.WriteLine(menuItem);
+            }
+
+            int.TryParse(Console.ReadLine(), out userSelection);
+
+        } while (userSelection < 1 || userSelection > 5);
+
+        return userSelection;
+        
     }
 }
-
 class Program
 {
     static void Main(string[] args)
@@ -37,6 +48,21 @@ class Program
 
         Menu JournalMenu = new Menu();
 
-        JournalMenu.ProcessMenu();
+        int userSelection = 0;
+        userSelection = JournalMenu.ProcessMenu();
+
+        switch (userSelection)
+        {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+        }
     }
 }
