@@ -38,31 +38,48 @@ class Menu
         } while (userSelection < 1 || userSelection > 5);
 
         return userSelection;
-        
+
     }
+}
+
+class Entry
+{
+    
 }
 class Program
 {
+    Entry[] _EntryList = [];
+
     static void Main(string[] args)
     {
 
         Menu JournalMenu = new Menu();
 
         int userSelection = 0;
-        userSelection = JournalMenu.ProcessMenu();
 
-        switch (userSelection)
+        while (true)
         {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
+            userSelection = JournalMenu.ProcessMenu();
+
+            switch (userSelection)
+            {
+                case 1:
+                // create a new entry object
+                // call create on that object
+                // add the entry to the journal
+                    break;
+                case 2:
+                // call journal.display
+                    break;
+                case 3:
+                // save to a file 
+                    break;
+                case 4:
+                // read from a file
+                    break;
+                case 5:
+                    return;
+            }
         }
     }
 }
