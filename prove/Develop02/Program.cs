@@ -1,6 +1,13 @@
 using System;
 using System.Runtime.InteropServices;
+using System.IO;
 
+//
+// ──────────────────────────────────────────────────────────────
+//   CLASS: Menu
+//   PURPOSE: Displays menu options and handles user selection
+// ──────────────────────────────────────────────────────────────
+//
 class Menu
 {
     public string[] _menuString = [
@@ -32,6 +39,12 @@ class Menu
     }
 }
 
+//
+// ──────────────────────────────────────────────────────────────
+//   CLASS: Entry
+//   PURPOSE: Stores a single journal entry with date, prompt, and response
+// ──────────────────────────────────────────────────────────────
+//
 class Entry
 {
     string _date;
@@ -52,7 +65,6 @@ class Entry
 
         _response = input;
     }
-
 
     public void FillEntry(string date, string prompt, string response)
     {
@@ -75,7 +87,12 @@ class Entry
     }
 }
 
-
+//
+// ──────────────────────────────────────────────────────────────
+//   CLASS: Journal
+//   PURPOSE: Manages collection of entries and handles file I/O
+// ──────────────────────────────────────────────────────────────
+//
 class Journal
 {
     public List<Entry> _entryList = new List<Entry>();
@@ -105,7 +122,7 @@ class Journal
     
     public void ReadFile()
     {
-        string[] lines = System.IO.File.ReadAllLines(_fileLocation);
+        string[] lines = File.ReadAllLines(_fileLocation);
 
         foreach (string line in lines)
         {
@@ -115,14 +132,20 @@ class Journal
             string prompt = parts[1];
             string response = parts[2];
 
-            Entry entry = new Entry();
-            entry.FillEntry(date, prompt, response);
+            Entry newEntry = new Entry();
+            newEntry.FillEntry(date, prompt, response);
 
-            _entryList.Add(entry);
+            _entryList.Add(newEntry);
         }
     }
 }
 
+//
+// ──────────────────────────────────────────────────────────────
+//   CLASS: Program
+//   PURPOSE: Main execution class that controls program flow
+// ──────────────────────────────────────────────────────────────
+//
 class Program
 {
     static string[] _questions = [
@@ -147,7 +170,7 @@ class Program
         Journal userJournal = new Journal();
         Menu journalMenu = new Menu();
 
-        userJournal._fileLocation="./myJournalData.txt";
+        userJournal._fileLocation = "./myJournalData.txt";
 
         int userSelection = 0;
 
@@ -170,12 +193,11 @@ class Program
                     break;
                 case 3:
                     userJournal.SaveFile();
-                    Console.WriteLine("Journal saved successfully!"); 
+                    Console.WriteLine("Journal saved successfully!");
                     break;
                 case 4:
                     userJournal.ReadFile();
-                    Console.WriteLine("Journal read successfully!"); 
-                    // read from a file
+                    Console.WriteLine("Journal read successfully!");
                     break;
                 case 5:
                     return;
