@@ -1,4 +1,6 @@
-## 🧭 Class Diagram — Journal Program
+# Unit 02 Develop: Journal Program
+
+## Class Diagram
 
 ### **Menu**
 
