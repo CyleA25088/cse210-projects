@@ -41,8 +41,18 @@ class Entry
         Console.WriteLine();
     }
 
+
+    private string EscapeForCsv(string field)
+    {
+        if (field.Contains("\""))
+            field = field.Replace("\"", "\"\"");
+        if (field.Contains(",") || field.Contains("\"") || field.Contains("\n"))
+            field = $"\"{field}\"";
+        return field;
+    }
+
     public string EntryData()
     {
-        return $"{_date}#{_prompt}#{_response}";
+        return $"{EscapeForCsv(_date)},{EscapeForCsv(_prompt)},{EscapeForCsv(_response)}";
     }
 }
