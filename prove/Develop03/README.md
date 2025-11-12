@@ -7,7 +7,7 @@
 | **Program**                                                                                                                                      |                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
 | **Fields**                                                                                                                                       | – `_scripture : Scripture`                                                   |
-| **Methods**                                                                                                                                      | + `Main(args : string[]) : void`<br>– `Run() : void`<br>– `Display() : void` |
+| **Methods**                                                                                                                                      | + `Main(args : string[]) : void`<br>– `Run() : bool`<br>– `Display() : void` |
 
 **Description**
 The entry point of the application. Manages program flow and user interaction, creating and controlling the `Scripture` object during execution.
