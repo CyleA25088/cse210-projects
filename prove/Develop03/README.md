@@ -4,10 +4,10 @@
 
 ### **Program**
 
-| **Program** |                                                               |
-| ----------- | ------------------------------------------------------------- |
-| **Fields**  | `- _scripture : Scripture`                                    |
-| **Methods** | `+ Main() : void`<br>`+ Display() : void`<br>`+ Run() : void` |
+| **Program** |                                                                                |
+| ----------- | ------------------------------------------------------------------------------ |
+| **Fields**  | `- _scripture : Scripture`                                                     |
+| **Methods** | `+ Program()`<br>`+ Main() : void`<br>`+ Display() : void`<br>`+ Run() : void` |
 
 **Description**
 The main class that controls the flow of the scripture memorization program. It handles user interaction, updates the display, and manages the scripture object.
@@ -16,10 +16,10 @@ The main class that controls the flow of the scripture memorization program. It 
 
 ### **Scripture**
 
-| **Scripture** |                                                                                                                                                                    |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Fields**    | `- _reference : Reference`<br>`- _words : List<Word>`                                                                                                              |
-| **Methods**   | `+ Scripture(reference : Reference, text : string)`<br>`+ HideRandomWords(count : int) : void`<br>`+ GetDisplayText() : string`<br>`+ IsCompletelyHidden() : bool` |
+| **Scripture** |                                                                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fields**    | `- _reference : Reference`<br>`- _words : List<Word>`                                                                                                                                             |
+| **Methods**   | `+ Scripture(reference : Reference, text : string)`<br>`+ HideRandomWords(count : int) : void`<br>`+ RevealAllWords() : void`<br>`+ GetDisplayText() : string`<br>`+ IsCompletelyHidden() : bool` |
 
 **Description**
 Stores the scripture text and its reference. Responsible for hiding and revealing words as the user progresses through memorization.
@@ -47,6 +47,7 @@ Represents the location of a scripture in the standard works (e.g., “John 3:16
 
 **Description**
 Represents a single word in the scripture text. Keeps track of whether the word is hidden or visible and provides display functionality.
+Each `Word` begins visible by default and can only be hidden once during runtime.
 
 ---
 
@@ -56,3 +57,6 @@ Represents a single word in the scripture text. Keeps track of whether the word 
 * **Scripture** manages its own `Reference` and a collection of `Word` objects.
 * **Reference** provides formatted citation data used by `Scripture`.
 * **Word** operates independently, tracking and updating its visibility state within the `Scripture`.
+* **Data Flow:**
+  **Program → Scripture → { Reference, Word }**
+  The `Program` handles user input, calls methods in `Scripture`, which in turn modifies `Word` objects and formats display text using `Reference`.
