@@ -14,7 +14,7 @@ class Journal
     public List<Entry> _entryList = new List<Entry>();
     public string _fileLocation = null;
 
-    public void displayEntries()
+    public void DisplayEntries()
     {
         foreach (Entry entry in _entryList)
         {

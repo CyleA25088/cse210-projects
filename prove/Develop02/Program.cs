@@ -10,7 +10,7 @@ using System.IO;
 //
 class Program
 {
-    static string[] _questions = [
+    static readonly string[] _questions = [
         "Who was the most interesting person I interacted with today?",
         "What was the best part of my day?",
         "How did I see the hand of the Lord in my life today?",
@@ -51,7 +51,7 @@ class Program
                     userJournal._entryList.Add(newEntry);
                     break;
                 case 2:
-                    userJournal.displayEntries();
+                    userJournal.DisplayEntries();
                     break;
                 case 3:
                     userJournal.SaveFile();
