@@ -4,13 +4,13 @@
 
 ### **Program**
 
-| **Program** |                                                                                |
-| ----------- | ------------------------------------------------------------------------------ |
-| **Fields**  | `- _scripture : Scripture`                                                     |
-| **Methods** | `+ Program()`<br>`+ Main() : void`<br>`+ Display() : void`<br>`+ Run() : void` |
+| **Program**                                                                                                                                      |                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| **Fields**                                                                                                                                       | – `_scripture : Scripture`                                                   |
+| **Methods**                                                                                                                                      | + `Main(args : string[]) : void`<br>– `Run() : void`<br>– `Display() : void` |
 
 **Description**
-The main class that controls the flow of the scripture memorization program. It handles user interaction, updates the display, and manages the scripture object.
+The entry point of the application. Manages program flow and user interaction, creating and controlling the `Scripture` object during execution.
 
 ---
 
@@ -60,3 +60,18 @@ Each `Word` begins visible by default and can only be hidden once during runtime
 * **Data Flow:**
   **Program → Scripture → { Reference, Word }**
   The `Program` handles user input, calls methods in `Scripture`, which in turn modifies `Word` objects and formats display text using `Reference`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
