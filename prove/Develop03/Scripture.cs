@@ -52,7 +52,7 @@ class Scripture
         return $"{outString} {wordsText}";
     }
     
-    public bool IsCompleteHidden()
+    public bool IsCompletelyHidden()
     {
         foreach (Word word in _words)
         {

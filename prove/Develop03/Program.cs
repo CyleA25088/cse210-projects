@@ -14,15 +14,17 @@ public class Program
         while (notFinished)
         {
             if (Run())
-            break;
+                break;
         }
     }
 
     private static bool Run()
     {
         Console.Clear();
+        
         Display();
-        if (_scripture.IsCompleteHidden())
+
+        if (_scripture.IsCompletelyHidden())
             return true;
 
         string userInput = Console.ReadLine();
@@ -30,7 +32,6 @@ public class Program
             return true;
         
         _scripture.HideRandomWords(3);
-
 
         return false;    
     }
