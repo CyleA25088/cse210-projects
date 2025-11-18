@@ -10,8 +10,8 @@ class Doctor : Person
         _tools = tools;
     }
 
-    public new string PersonalInfo()
+    public string DoctorPersonalInfo()
     {
-        return $"{base.PersonalInfo()}, Tools: {_tools}";
+        return $"{PersonalInfo()}, Tools: {_tools}";
     }
 }

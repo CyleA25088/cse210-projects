@@ -10,8 +10,8 @@ class Police : Person
         _weapons = weapons;
     }
 
-    public new string PersonalInfo()
+    public string PolicePersonalInfo()
     {
-        return $"{base.PersonalInfo()}, Weapons: {_weapons}";
+        return $"{PersonalInfo()}, Weapons: {_weapons}";
     }
 }
