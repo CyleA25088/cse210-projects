@@ -48,6 +48,8 @@ class ListingActivity : BaseActivity
                 
                 Console.Write("> ");
             }
+        
+            Thread.Sleep(50); // prevents CPU from dying
         }
 
         Console.WriteLine($"\nYou listed {items.Count} items!");

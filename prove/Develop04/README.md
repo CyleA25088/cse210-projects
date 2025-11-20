@@ -6,65 +6,58 @@
 
 ### **Program**
 
-| **Program** |                                                                                                             |
-| ----------- | ----------------------------------------------------------------------------------------------------------- |
-| **Fields**  | – `_activities : List<BaseActivity>`                                                                        |
-| **Methods** | + `Main(args : string[]) : void`<br>+ `DisplayMenu() : void`<br>+ `RunSelectedActivity(index : int) : void` |
+| **Program** |                                                              |
+| ----------- | ------------------------------------------------------------ |
+| **Fields**  | – `_activities : List<BaseActivity>`                         |
+| **Methods** | + `Main(args : string[]) : void`<br>+ `DisplayMenu() : void` |
 
 **Description:**
-Entry point of the application. Displays a menu for the user to select an activity, instantiates the selected activity, and calls its `Run()` method.
-
+Controls the main menu loop. Lets the user select an activity, runs it, and repeats until the user quits.
 
 ---
 
-### **BaseActivity**
+## **BaseActivity**
 
-| **BaseActivity** |                                                                                                                                                                                           |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Fields**       | – `_name : string`<br>– `_description : string`<br>– `_duration : int`                                                                                                                    |
-| **Methods**      | + `BaseActivity(name : string, description : string, duration : int) : void`<br>+ `Spinner(seconds : int) : void`<br>+ `CountdownEvent(seconds : int) : void`<br>+ `virtual Run() : void` |
+| **BaseActivity** |                                                                                                                                                                                                                                                                                                       |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fields**       | – `_name : string`<br>– `_description : string`<br>– `_duration : int`                                                                                                                                                                                                                                |
+| **Methods**      | + `BaseActivity(name : string, description : string)`<br>+ `GetName() : string`<br>+ `Spinner(seconds : int) : void`<br>+ `CountdownEvent(seconds : int) : void`<br>+ `DisplayTitleDescription() : void`<br>+ `AskForDuration() : void`<br>+ `ShowEndingMessage() : void`<br>+ `virtual Run() : void` |
 
 **Description:**
-Base class providing shared behavior such as spinner, countdown, and description/name handling.
+Abstract base class providing shared functionality such as displaying the title/description, prompting for duration, spinner animation, countdown, and ending message.
 
 ---
 
-### **BreathingActivity**
+## **BreathingActivity**
 
-| **BreathingActivity : BaseActivity** |                                                                                                                                             |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Fields**                           | – `_inTime : int`<br>– `_outTime : int`                                                                                                     |
-| **Methods**                          | + `BreathingActivity(name : string, description : string, duration : int, inTime : int, outTime : int) : void`<br>+ `override Run() : void` |
+| **BreathingActivity : BaseActivity** |                                                                                                                                   |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **Fields**                           | – `_inTime : int`<br>– `_outTime : int`                                                                                           |
+| **Methods**                          | + `BreathingActivity(inTime : int, outTime : int)`<br>+ `override Run() : void`<br>+ `BreathingProgressBar(seconds : int) : void` |
 
 **Description:**
-Implements a guided breathing exercise using inhale/exhale timing with countdowns.
+Guides the user through timed inhale/exhale cycles using a visual progress bar until the selected duration expires.
 
 ---
 
-### **ReflectionActivity**
+## **ReflectionActivity**
 
-| **ReflectionActivity : BaseActivity** |                                                                                                                 |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **Fields**                            | – `_prompts : List<string>`<br>– `_questions : List<string>`                                                    |
-| **Methods**                           | + `ReflectionActivity(name : string, description : string, duration : int) : void`<br>+ `override Run() : void` |
+| **ReflectionActivity : BaseActivity** |                                                              |
+| ------------------------------------- | ------------------------------------------------------------ |
+| **Fields**                            | – `_prompts : List<string>`<br>– `_questions : List<string>` |
+| **Methods**                           | + `ReflectionActivity()`<br>+ `override Run() : void`        |
 
 **Description:**
-Guides the user through deep reflection by showing a random prompt and then asking reflective questions with spinner pauses until the activity duration ends.
+Shows a random reflective prompt, waits for the user to prepare, counts down, then repeatedly displays reflective questions with a spinner until time runs out.
 
 ---
 
-### **ListingActivity**
+## **ListingActivity**
 
-| **ListingActivity : BaseActivity** |                                                                                                              |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Fields**                         | – `_prompts : List<string>`<br>– `_responses : List<string>`                                                 |
-| **Methods**                        | + `ListingActivity(name : string, description : string, duration : int) : void`<br>+ `override Run() : void` |
+| **ListingActivity : BaseActivity** |                                                     |
+| ---------------------------------- | --------------------------------------------------- |
+| **Fields**                         | – `_questions : List<string>`<br>– `_rand : Random` |
+| **Methods**                        | + `ListingActivity()`<br>+ `override Run() : void`  |
 
 **Description:**
-Shows a random prompt, gives a short countdown, then collects as many user-entered responses as possible until the duration expires. Displays the total count at the end.
-
-
-
-
-
-
+Picks a random question prompt, counts down, then collects as many user-typed responses as possible within the duration and reports the total count.

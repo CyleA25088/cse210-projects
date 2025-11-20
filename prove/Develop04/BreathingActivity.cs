@@ -13,16 +13,22 @@ class BreathingActivity : BaseActivity
     private void BreathingProgressBar(int seconds)
     {
         Console.CursorVisible = false;
-        Console.Write("[");
-        Console.Write(new string(' ', seconds*2));
-        Console.Write("]");
-        Console.Write(new string('\b', seconds*2+1));
 
-        for (int i = 1; i <= seconds*2; i++)
+        int total = seconds * 2;
+
+        Console.Write("[");
+        int innerStart = Console.CursorLeft;
+        Console.Write(new string(' ', total));
+        Console.Write("]");
+
+        Console.SetCursorPosition(innerStart, Console.CursorTop);
+
+        for (int i = 0; i < total; i++)
         {
             Thread.Sleep(500);
             Console.Write("#");
         }
+
         Console.WriteLine();
         Console.CursorVisible = true;
     }

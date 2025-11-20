@@ -45,7 +45,7 @@ class ReflectionActivity : BaseActivity
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
         while(DateTime.Now < endTime){
-            Console.Write($"\n> {_prompts[_randomPrompt.Next(_prompts.Count)]} ");
+            Console.Write($"\n> {_questions[_randomPrompt.Next(_questions.Count)]} ");
             Spinner(10);
         }
     }

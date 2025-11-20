@@ -9,7 +9,6 @@ class Program
         new ListingActivity(),
     };
 
-
     static void Main(string[] args)
     {
         while(true){
@@ -29,6 +28,7 @@ class Program
                 
             }while(input < 0 || input > _activities.Count);
 
+            // user Quits the program
             if(input==0) return;
 
             int activityIndex = input-1;
@@ -53,6 +53,6 @@ class Program
         {
             Console.WriteLine($"  {index++}. {activity.GetName()}");
         }
-        Console.WriteLine("Select a choice from the menu");
+        Console.Write("Select a choice from the menu\n> ");
     }
 }
