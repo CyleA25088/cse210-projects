@@ -1,13 +1,19 @@
+using System.Runtime.InteropServices;
+
 class BaseActivity
 {
     protected string _name = "";
-    protected string _prompt = "";
-    
     protected string _description = "";
-
-    public BaseActivity(string name)
+    protected int _duration = 0;
+    public BaseActivity(string name, string description)
     {
         _name = name;
+        _description = description;
+    }
+
+    public string GetName()
+    {
+        return _name;
     }
 
     protected void Spinner(int seconds)
@@ -19,24 +25,28 @@ class BaseActivity
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
 
+        Console.CursorVisible = false;
         while(DateTime.Now < endTime)
         {
             Console.Write(animationString[index++ % animationString.Length]);
             Thread.Sleep(sleepTime);
             Console.Write("\b");
         }
+        Console.CursorVisible = true;
     }
 
     protected void CountdownEvent(int seconds)
     {
         if(seconds>99)
             return;
-
+    
         int duration = seconds;
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
 
         int count = duration;
+
+        Console.CursorVisible = false;
 
         while(DateTime.Now < endTime)
         {
@@ -50,8 +60,46 @@ class BaseActivity
 
 
             count--;
-
         }
+        
+        Console.CursorVisible = true;
+    }
+
+    public void DisplayTitleDescription()
+    {
+        Console.WriteLine($"Welcome to the {_name}!");
+        Console.WriteLine(_description);
+
+        Console.WriteLine();
+    }
+
+    public void ShowEndingMessage()
+    {
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
+        
+        Spinner(5);
+    }
+
+    public void AskForDuration()
+    {
+        Console.Write("How long, in seconds, would you like to participate in this activity?\n> ");
+
+        int duration;
+        string input = Console.ReadLine();
+
+        while (!int.TryParse(input, out duration) || duration <= 0)
+        {
+            Console.WriteLine("Enter a positive number in seconds.");
+            Console.Write("> ");
+            input = Console.ReadLine();
+        }
+
+        _duration = duration;
+
+        Console.Write("Get Ready! ");
+        Spinner(5);
+
+        Console.Clear();
     }
 
     virtual public void Run() { }
