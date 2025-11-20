@@ -4,39 +4,45 @@ class BreathingActivity : BaseActivity
     private int _outTime;
 
     public BreathingActivity(int inTime, int outTime)
-        : base("Breathing Activity")
+        : base("Breathing Activity", "This activity will help you relax by walking you\nthrough breathing in and out slowly. Clear your mind and focus on your breathing.")
     {
         _inTime = inTime;
         _outTime = outTime;
-
-        _description = "This activity helps you practice controlled breathing.";
-        _prompt = "How many seconds would you like to breathe for?";
     }
+
+    private void BreathingProgressBar(int seconds)
+    {
+        Console.CursorVisible = false;
+        Console.Write("[");
+        Console.Write(new string(' ', seconds*2));
+        Console.Write("]");
+        Console.Write(new string('\b', seconds*2+1));
+
+        for (int i = 1; i <= seconds*2; i++)
+        {
+            Thread.Sleep(500);
+            Console.Write("#");
+        }
+        Console.WriteLine();
+        Console.CursorVisible = true;
+    }
+
 
     public override void Run()
     {
-        Console.WriteLine(_prompt);
+        DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        int breathingTime = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Get Ready!");
-        CountdownEvent(5);
-
-        DateTime endTime = DateTime.Now.AddSeconds(breathingTime);
+        Console.Clear();
 
         while (DateTime.Now < endTime)
         {
-            Console.Write("Breathe in! ");
-            CountdownEvent(_inTime);
-
-            Console.WriteLine();
+            Console.Write("Breathe in!  ");
+            BreathingProgressBar(_inTime);
 
             Console.Write("Breathe out! ");
-            CountdownEvent(_outTime);
-
-            Console.WriteLine();
+            BreathingProgressBar(_outTime);
         }
 
-        Console.WriteLine("Great Job!");
+        Console.WriteLine("Well done!");
     }
 }
