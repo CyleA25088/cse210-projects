@@ -4,64 +4,49 @@
 
 ---
 
-### **Program**
+### **BaseActivity**
 
-| **Program** |                                                                                                       |
-| ----------- | ----------------------------------------------------------------------------------------------------- |
-| **Fields**  | – *(none required)*                                                                                   |
-| **Methods** | + `Main(args : string[]) : void`<br>– `DisplayMenu() : void`<br>– `HandleChoice(choice : int) : void` |
+| **BaseActivity** |                                                                                          |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| **Fields**       | – `_name : string`<br>– `_description : string`<br>– `_prompt : string`                  |
+| **Methods**      | + `BaseActivity(name : string, description : string, duration : int)
+ : void`<br>+ `Spinner(seconds : int) : void`<br>+ `CountdownEvent(seconds : int) : void`<br>+ `virtual Run() : void` |
 
-**Description:**
-Controls the menu, creates the activity objects, and runs them.
-
----
-
-### **Activity** (Base Class)
-
-| **Activity** |                                                                                                                                                              |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Fields**   | – `_name : string`<br>– `_description : string`<br>– `_duration : int`                                                                                       |
-| **Methods**  | + `StartMessage() : void`<br>+ `EndMessage() : void`<br>+ `Spinner(seconds : int) : void`<br>+ `Countdown(seconds : int) : void`<br>+ `virtual Run() : void` |
-
-**Description:**
-Provides common behavior for all activities, including timing, animations, and intro/outro messages.
+**Description:**  
+Base class providing shared behavior such as spinner, countdown, and a common name/prompt/description structure.
 
 ---
 
 ### **BreathingActivity**
 
-| **BreathingActivity : Activity** |                                |
-| -------------------------------- | ------------------------------ |
-| **Fields**                       | – *(inherits Activity fields)* |
-| **Methods**                      | + `override Run() : void`      |
+| **BreathingActivity : BaseActivity** |                                              |
+| ------------------------------------ | -------------------------------------------- |
+| **Fields**                           | – `_inTime : int`<br>– `_outTime : int`       |
+| **Methods**                          | + `BreathingActivity(inTime : int, outTime : int) : void`<br>+ `override Run() : void` |
 
-**Description:**
-Runs the breathing exercise, alternating between inhale/exhale messages with countdowns.
+**Description:**  
+Implements a guided breathing exercise using inhale/exhale timing with countdowns.
 
 ---
 
 ### **ReflectionActivity**
 
-| **ReflectionActivity : Activity** |                                                              |
-| --------------------------------- | ------------------------------------------------------------ |
-| **Fields**                        | – `_prompts : List<string>`<br>– `_questions : List<string>` |
-| **Methods**                       | + `override Run() : void`                                    |
+| **ReflectionActivity : BaseActivity** |                                                                 |
+| ------------------------------------- | --------------------------------------------------------------- |
+| **Fields**                            | – `_prompts : List<string>`<br>– `_questions : List<string>`     |
+| **Methods**                           | + `ReflectionActivity() : void`<br>+ `override Run() : void`     |
 
-**Description:**
-Shows a random prompt and cycles through reflection questions with spinner pauses.
+**Description:**  
+Guides the user through deep reflection by showing a random prompt and then asking reflective questions with spinner pauses until the activity duration ends.
 
 ---
 
 ### **ListingActivity**
 
-| **ListingActivity : Activity** |                                                              |
-| ------------------------------ | ------------------------------------------------------------ |
-| **Fields**                     | – `_prompts : List<string>`<br>– `_responses : List<string>` |
-| **Methods**                    | + `override Run() : void`                                    |
+| **ListingActivity : BaseActivity** |                                                                |
+| ---------------------------------- | -------------------------------------------------------------- |
+| **Fields**                         | – `_prompts : List<string>`<br>– `_responses : List<string>`    |
+| **Methods**                        | + `ListingActivity() : void`<br>+ `override Run() : void`        |
 
-**Description:**
-Shows a prompt, gives a countdown, collects user list items until duration ends, then returns the count.
-
----
-
-If you want, I can also add arrows (inheritance diagram), or make a clean printable version.
+**Description:**  
+Shows a random prompt, gives a short countdown, then collects as many user-entered responses as possible until the duration expires. Displays the total count at the end.
