@@ -4,6 +4,19 @@
 
 ---
 
+### **Program**
+
+| **Program** |                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------- |
+| **Fields**  | – `_activities : List<BaseActivity>`                                                                        |
+| **Methods** | + `Main(args : string[]) : void`<br>+ `DisplayMenu() : void`<br>+ `RunSelectedActivity(index : int) : void` |
+
+**Description:**
+Entry point of the application. Displays a menu for the user to select an activity, instantiates the selected activity, and calls its `Run()` method.
+
+
+---
+
 ### **BaseActivity**
 
 | **BaseActivity** |                                                                                                                                                                                           |
@@ -50,12 +63,8 @@ Guides the user through deep reflection by showing a random prompt and then aski
 **Description:**
 Shows a random prompt, gives a short countdown, then collects as many user-entered responses as possible until the duration expires. Displays the total count at the end.
 
----
 
-### **Interaction Note**
 
-A `Program` class (not shown here) would:
 
-* Display a menu to select an activity.
-* Instantiate `BreathingActivity`, `ReflectionActivity`, or `ListingActivity` with the desired `name`, `description`, and `duration`.
-* Call the `Run()` method on the selected activity to execute it.
+
+
