@@ -35,8 +35,8 @@ class ReflectionActivity : BaseActivity
         Console.ReadLine();
 
         Console.Clear();
-        Console.WriteLine("now ponder on each of the following questions as the relate to this experience.");
-        Console.Write("You may begine in: ");
+        Console.WriteLine("now ponder on each of the following questions as theyS relate to this experience.");
+        Console.Write("You may begin in: ");
 
         CountdownEvent(5);
 
@@ -44,8 +44,11 @@ class ReflectionActivity : BaseActivity
 
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
+        Console.Write("> ");
+
         while(DateTime.Now < endTime){
-            Console.Write($"\n> {_questions[_randomPrompt.Next(_questions.Count)]} ");
+            Console.WriteLine($"{_questions[_randomPrompt.Next(_questions.Count)]} ");
+            Console.Write("> ");
             Spinner(10);
         }
     }
