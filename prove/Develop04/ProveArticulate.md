@@ -1,4 +1,4 @@
-The idea behind inheritance is that you can program one class with the common pieces and let the related classes reuse it. So instead of copying the same methods around, one instead builds them once in the parent class. The child classes still get to add their own details, but they don’t have to redo the basic work. This helps keep the project cleaner and cuts down on repeated code, which is usually where bugs show up.
+The idea behind inheritance is that you can program one class with the common pieces and let the related classes reuse it. So instead of copying the same methods around, one instead builds them once in the parent class. The child classes still get to add their own details, but they don’t have to redo the basic work. This helps keep the project cleaner and cuts down on repeated code, which is usually where bugs show up. Below is a simple example showing a parent Animal class and child classes that inherit its behavior.
 
 ```cs
 // Base class
