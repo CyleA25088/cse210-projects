@@ -4,7 +4,7 @@ The idea behind inheritance is that you can program one class with the common pi
 // Base class
 public class Animal
 {
-    public string Name;    // simple field, since properties aren't used yet
+    public string Name;
 
     public void Eat()
     {
@@ -33,7 +33,7 @@ public class Cat : Animal
 // Sub-subclass of Dog
 public class GermanShepherd : Dog
 {
-    // Breed-specific attribute (field, not property)
+    // Breed-specific attribute
     public bool IsTrained;
 
     public void Guard()
