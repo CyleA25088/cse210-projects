@@ -30,9 +30,6 @@ class ListingActivity : BaseActivity
 
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
 
-        // Console.WriteLine("\nStart listing items! Press Enter after each one.");
-
-        // 4. Collect items
         List<string> items = new List<string>();
             
         Console.Write("> ");
