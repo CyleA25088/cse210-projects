@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-class BaseActivity
+abstract class BaseActivity
 {
     protected string _name = "";
     protected string _description = "";
@@ -102,5 +102,5 @@ class BaseActivity
         Console.Clear();
     }
 
-    virtual public void Run() { }
+    public abstract void Run();
 }
