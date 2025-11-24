@@ -1,4 +1,4 @@
-class Person
+abstract class Person
 {
     private string _firstName = "";
     private string _lastName = "";
@@ -16,6 +16,8 @@ class Person
     {
         return $"{_lastName}, {_firstName} is {_age} year/s old, and weighs {_weight} lbs";
     }
+
+    public abstract double GetSalary();
     public void SetAge(int age)
     {
         if(age<=0 || age > 300)

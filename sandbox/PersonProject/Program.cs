@@ -2,7 +2,7 @@
 {
     public static void DisplayPersonInformation(Person person)
     {
-        Console.WriteLine(person.PersonalInfo());
+        Console.WriteLine($"{person.PersonalInfo()}, salary: {person.GetSalary()}");
     }
 
     static void Main(string[] args)

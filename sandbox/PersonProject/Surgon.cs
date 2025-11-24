@@ -14,4 +14,9 @@ class Surgon : Doctor
     {
         return $"{base.PersonalInfo()}, Title: {_title}";
     }
+    
+    public override double GetSalary()
+    {
+        return 30.8;
+    }
 }
