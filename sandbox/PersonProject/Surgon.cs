@@ -10,10 +10,8 @@ class Surgon : Doctor
         _title = title;
     }
 
-    public string SurgonPersonalInfo()
+    public override string PersonalInfo()
     {
-        Console.WriteLine("Surgon print:");
-
-        return $"{PersonalInfo()}, Title: {_title}";
+        return $"{base.PersonalInfo()}, Title: {_title}";
     }
 }

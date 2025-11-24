@@ -12,7 +12,7 @@ class Person
         SetAge(age);
         SetWeight(weight);
     }
-    public string PersonalInfo()
+    public virtual string PersonalInfo()
     {
         return $"{_lastName}, {_firstName} is {_age} year/s old, and weighs {_weight} lbs";
     }

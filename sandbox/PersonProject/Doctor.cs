@@ -10,8 +10,8 @@ class Doctor : Person
         _tools = tools;
     }
 
-    public string DoctorPersonalInfo()
+    public override string PersonalInfo()
     {
-        return $"{PersonalInfo()}, Tools: {_tools}";
+        return $"{base.PersonalInfo()}, Tools: {_tools}";
     }
 }
