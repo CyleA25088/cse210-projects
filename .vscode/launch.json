@@ -3,6 +3,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "ReferenceApp",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-sandbox-Reference",
+            "program": "${workspaceFolder}/sandbox/ReferenceApp/bin/Debug/net9.0/ReferenceApp.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sandbox/ReferenceApp",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        
+        
+        {
             "name": "SolarSystem Project",
             "type": "coreclr",
             "request": "launch",
