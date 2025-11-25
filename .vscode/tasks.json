@@ -3,6 +3,17 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "build-CWP",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${fileDirname}"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
+        {
             "label": "build-sandbox-Reference",
             "command": "dotnet",
             "type": "process",

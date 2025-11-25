@@ -3,6 +3,16 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "CWP",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-CWP",
+            "program": "${fileDirname}/bin/Debug/net9.0/${fileDirnameBasename}.dll",
+            "cwd": "${fileDirname}",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
             "name": "ReferenceApp",
             "type": "coreclr",
             "request": "launch",
