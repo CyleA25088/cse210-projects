@@ -3,9 +3,11 @@ abstract class BaseGoal
     private string _name;
     private int _points;
     private bool _isCompleted;
-    public BaseGoal(string name, int points)
+    private string _description;
+    public BaseGoal(string name, string description, int points)
     {
         _name = name;
+        _description = description;
         _points = points;
         _isCompleted = false;
 
@@ -14,6 +16,11 @@ abstract class BaseGoal
     public string GetName()
     {
         return _name;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
     }
 
     public int GetPoints()
@@ -33,11 +40,12 @@ abstract class BaseGoal
 
     public abstract int RecordEvent();
 
-    public virtual void DisplayGoal()
+    public virtual string Serialize()
     {
-        string status = _isCompleted ? "[X]" : "[ ]";
-        Console.WriteLine($"{status} {_name} ({_points} points)");
+        return $"{_name}|{_description}|{_points}";
     }
+
+    public abstract void DisplayGoal();
 
     public virtual int CalculatePoints()
     {
