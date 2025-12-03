@@ -1,0 +1,4 @@
+Points|20
+SimpleGoal|my simple goal|do x|20|1
+EternalGoal|my eternal goal|do y|30|0
+ChecklistGoal|my checklist goal|do z|40|0|67|100
