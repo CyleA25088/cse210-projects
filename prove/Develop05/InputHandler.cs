@@ -7,7 +7,6 @@ public static class InputHandler
         {
             Console.Clear();
 
-            // Call any extra UI the programmer wants (ex: ListGoals)
             beforePrompt?.Invoke();
             
             foreach (var line in lines)
@@ -28,13 +27,12 @@ public static class InputHandler
                 return value;
 
             error = true;
-            // Error displayed BELOW their input
+            // Error displayed BELOW the user's input
         }
     }
 
     public static string GetString(string prompt, Action beforePrompt = null)
     {
-        // Call any extra UI the programmer wants (ex: ListGoals)
         beforePrompt?.Invoke();
 
         Console.WriteLine(prompt);
