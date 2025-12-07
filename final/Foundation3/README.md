@@ -4,7 +4,7 @@
 | **Event** |                                                                                       |
 | --------- | ------------------------------------------------------------------------------------- |
 | **Fields**  | – `_title : string`  <br>– `_description : string`  <br>– `_date : DateTime`  <br>– `_time : TimeSpan`  <br>– `_address : Address` |
-| **Methods** | + `Event(title, description, date, time, address)`  <br>+ `GetStandardDetails() : string`  <br>+ `GetFullDetails() : string`  <br>+ `GetShortDescription() : string` |
+| **Methods** | + `Event(title : string, description : string , date : DateTime, time : TimeSpan, address : Address)`  <br>+ `GetStandardDetails() : string`  <br>+ `GetFullDetails() : string`  <br>+ `GetShortDescription() : string` |
 
 **Description:**  
 Base class with shared fields and three message methods.
@@ -16,7 +16,7 @@ Base class with shared fields and three message methods.
 | **Lecture : Event** |                                                                                   |
 | ------------------- | --------------------------------------------------------------------------------- |
 | **Fields**          | – `_speaker : string`  <br>– `_capacity : int`                                   |
-| **Methods**         | + `Lecture(..., speaker, capacity)`  <br>+ `GetFullDetails() : string`            |
+| **Methods**         | + `Lecture(..., speaker : string, capacity : int)`  <br>+ `GetFullDetails() : string`            |
 
 **Description:**  
 Adds speaker and capacity. Full details include those.
@@ -28,7 +28,7 @@ Adds speaker and capacity. Full details include those.
 | **Reception : Event** |                                                                                 |
 | --------------------- | ------------------------------------------------------------------------------- |
 | **Fields**            | – `_rsvpEmail : string`                                                         |
-| **Methods**           | + `Reception(..., rsvpEmail)`  <br>+ `GetFullDetails() : string`                |
+| **Methods**           | + `Reception(..., rsvpEmail : string)`  <br>+ `GetFullDetails() : string`                |
 
 **Description:**  
 Adds RSVP email. Full details include RSVP info.
@@ -40,7 +40,7 @@ Adds RSVP email. Full details include RSVP info.
 | **OutdoorGathering : Event** |                                                                         |
 | ---------------------------- | ----------------------------------------------------------------------- |
 | **Fields**                   | – `_weatherForecast : string`                                           |
-| **Methods**                  | + `OutdoorGathering(..., weatherForecast)`  <br>+ `GetFullDetails() : string` |
+| **Methods**                  | + `OutdoorGathering(..., weatherForecast : string)`  <br>+ `GetFullDetails() : string` |
 
 **Description:**  
 Tracks weather notes. Full details include weather statement.
