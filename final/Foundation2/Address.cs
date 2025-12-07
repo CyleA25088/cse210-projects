@@ -7,10 +7,10 @@ class Address
 
     public Address(string streetAddress, string city, string stateOrProvince, string country)
     {
-        this._street = streetAddress;
-        this._city = city;
-        this._stateOrProvince = stateOrProvince;
-        this._country = country;
+        _street = streetAddress;
+        _city = city;
+        _stateOrProvince = stateOrProvince;
+        _country = country;
     }
 
     public bool IsUS()
@@ -18,7 +18,7 @@ class Address
         return _country.ToLower() == "usa" || _country.ToLower() == "united states" || _country.ToLower() == "united states of america";
     }
 
-    public override string ToString()
+    public string GetAddressInfo()
     {
         return $"{_street}\n{_city}, {_stateOrProvince}\n{_country}";
     }

@@ -8,4 +8,14 @@ class Customer
         _name = name;
         _address = address;
     }
+
+    public bool IsInUSA()
+    {
+        return _address.IsUS();
+    }
+
+    public string GetCustomerInfo()
+    {
+        return $"{_name}\n{_address.GetAddressInfo()}";
+    }
 }

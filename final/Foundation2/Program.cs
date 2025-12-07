@@ -44,8 +44,55 @@ Other considerations
 
 class Program
 {
+
+    static private List<Order> _orders = new List<Order>();
+
+    private static Order CreateFirstOrder()
+    {
+        Address address = new Address("123 Main St", "Springfield", "IL", "USA");
+        Customer customer = new Customer("John Doe", address);
+        Order order = new Order(customer);
+
+        Product product1 = new Product("Widget", "W123", 10.00, 2);
+        Product product2 = new Product("Gadget", "G456", 15.50, 1);
+
+        order.AddProduct(product1);
+        order.AddProduct(product2);
+
+        return order;
+    }
+
+    private static Order CreateSecondOrder()
+    {
+        Address address = new Address("456 Elm St", "Toronto", "ON", "Canada");
+        Customer customer = new Customer("Jane Smith", address);
+        Order order = new Order(customer);
+
+        Product product1 = new Product("Thingamajig", "T789", 20.00, 3);
+        Product product2 = new Product("Doohickey", "D012", 5.75, 4);
+
+        order.AddProduct(product1);
+        order.AddProduct(product2);
+
+        return order;
+    }
+
+    static void DisplayOrderSummaries()
+    {
+        foreach (var order in _orders)
+        {
+            Console.WriteLine(order.GetPackingLabel());
+            Console.WriteLine(order.GetShippingLabel());
+            Console.WriteLine($"Total Cost: ${order.CalculateTotalCost()}\n");
+        }
+    }
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        
+      _orders.Add(CreateFirstOrder());
+      _orders.Add(CreateSecondOrder());
+
+      DisplayOrderSummaries();
     }
 }
