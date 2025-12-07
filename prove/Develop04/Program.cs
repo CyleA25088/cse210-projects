@@ -11,12 +11,11 @@ class Program
 
     static void Main(string[] args)
     {
-        while(true){
+        while (true) {
             int input = -1;
-            do{
+            do {
                 Console.Clear();
                 DisplayMenu();
-                
 
                 string userInput = Console.ReadLine();
 
@@ -26,12 +25,12 @@ class Program
                     continue;
                 }
                 
-            }while(input < 0 || input > _activities.Count);
+            } while (input < 0 || input > _activities.Count);
 
             // user Quits the program
-            if(input==0) return;
+            if (input == 0) return;
 
-            int activityIndex = input-1;
+            int activityIndex = input - 1;
             BaseActivity chosenActivity = _activities[activityIndex];
 
             Console.Clear();

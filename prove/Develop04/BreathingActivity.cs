@@ -9,29 +9,44 @@ class BreathingActivity : BaseActivity
         _inTime = inTime;
         _outTime = outTime;
     }
-
+        
     private void BreathingProgressBar(int seconds)
     {
         Console.CursorVisible = false;
 
-        int total = seconds * 2;
+        int barWidth = seconds * 5;
+        int totalSteps = seconds * 10;
 
-        Console.Write("[");
+        Console.Write("\n[");
         int innerStart = Console.CursorLeft;
-        Console.Write(new string(' ', total));
+        Console.Write(new string(' ', barWidth));
         Console.Write("]");
 
         Console.SetCursorPosition(innerStart, Console.CursorTop);
 
-        for (int i = 0; i < total; i++)
+        for (int i = 0; i < totalSteps; i++)
         {
-            Thread.Sleep(500);
-            Console.Write("#");
+            // Ease-out curve
+            double t = (double)i / totalSteps;
+            double eased = 1 - Math.Pow(1 - t, 3);
+
+            int charsToShow = (int)(eased * barWidth);
+
+            Console.SetCursorPosition(innerStart, Console.CursorTop);
+            Console.Write(new string('#', charsToShow));
+            Console.Write(new string(' ', barWidth - charsToShow));
+
+            Thread.Sleep(100);
         }
+
+        Console.SetCursorPosition(innerStart, Console.CursorTop);
+        Console.Write(new string('#', barWidth));
 
         Console.WriteLine();
         Console.CursorVisible = true;
     }
+
+
 
 
     public override void Run()
