@@ -116,9 +116,15 @@ class Program
 
         int index = InputHandler.GetInt(
             "Select the goal number to record an event for",
-            1, _goals.Count,
+            0, _goals.Count,
             ListGoals
         ) - 1;
+
+        if(index == -1)
+        {
+            Console.WriteLine("No Goal Recorded.");
+            return;
+        }
 
         BaseGoal goal = _goals[index];
         int earned = goal.RecordEvent();
